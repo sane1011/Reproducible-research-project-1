@@ -1,18 +1,15 @@
 Reproducible-research-project-1
-
 ===============================
 
 The goal of this assignment is to analyze a set of data and document it so that it is reproducible by others. After all, if others can't replicate it, it is not science. The components of this repo are as follows:  
 
-* A R markdown file of the data analysis.  
-
-* The data itself.  
-
-* A html file corresponding to the rmd file.  
-
+* A R markdown file of the data analysis. (analysis_doc.rmd)  
+* The data itself. (steps_data.csv)  
+* A html file corresponding to the rmd file.  (analysis_doc.html)  
 * Plots in the document.  
 
 Below we give a more detailed breakdown of the various components of the assignment.
+___________
 
 Introduction
 ------------
@@ -25,3 +22,21 @@ Variables of the activity monitoring data are given by:
 * steps: number of steps taken in a 5-minute interval (missing values are denoted NA)
 * date: date on which the measurement was taken in yyyy-mm-dd format.
 * interval: identifier for the five minute intervals. 
+
+The data is stored in a comma separated CSV file with 17568 rows. 
+
+Assignment
+----------
+Show the following codes and results:
+* Loading the data and preprocessing.  
+  1. Loading data using read.csv().    
+  2. Processing the data into a format fit for analysis.  
+* What is the mean total number of steps taken per day?  
+  1. (Ignoring NA values) calculate the total number of steps taken per day.  
+  2. Make a histogram of the total number of steps taken per day.  
+  3. Compute the mean and median of the total steps per day.  
+* What is the average daily activity pattern?
+  1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, average across all days (y-axis).  
+  2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?  
+* Imputing missing values. Presence of NA days may introduce bias into some calculations or summaries of the data.  
+  1. Calculate and report the total number of mising values in the data set (total number of rows in NA).  
