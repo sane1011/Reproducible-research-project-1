@@ -9,6 +9,8 @@ The goal of this assignment is to analyze a set of data and document it so that 
 Below we give a more detailed breakdown of the various components of the assignment.
 
 Introduction
-____________
+------------
+Introduction
+............
 
 
