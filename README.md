@@ -8,6 +8,8 @@ The goal of this assignment is to analyze a set of data and document it so that 
 * A html file corresponding to the rmd file.  (analysis_doc.html)  
 * Plots in the document.  
 
+To force github to *not* show the html cource code, prepend the html url with: http://htmlpreview.github.io/? 
+
 Below we give a more detailed breakdown of the various components of the assignment.
 ___________
 
