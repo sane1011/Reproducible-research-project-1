@@ -1,0 +1,85 @@
+---
+title: "Daily Steps Takes - Data Analysis"
+author: "Faiyaz Hasan"
+date: "June 17, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+```
+
+1. Loading the data
+-------------------
+
+We set the working directory followed by downloading the dataset from its url and unzipping the file to "step_data.csv". The data comes from Roger Pengs [github account](https://github.com/rdpeng/RepData_PeerAssessment1).
+
+```{r load data}
+setwd("C:\\Users\\Windows\\Documents\\JHU_Data_Science\\Course_5\\Project_1\\")
+url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+destfile <- "step_data.zip"
+download.file(url, destfile)
+unzip(destfile)
+activity <- read.csv("activity.csv", sep = ",")
+```
+
+The variable names and the structure of the activity file:
+```{r activity details}
+names(activity)
+str(activity)
+```
+The format of the file is ready for analysis. No processing is required. 
+
+2. Mean of "total number of step taken per day" over all days
+-------------------------------------------------------------
+
+Group the number of steps taken by date and intervals. Find the total number of steps taken per day over all days. Note that some of the days such as 2012-10-01 have no steps data.
+
+```{r steps mean}
+library(reshape2)
+activity_melt <- melt(activity, id.vars = c("date", "interval"))
+head(activity_melt)
+steps_sum <- dcast(activity_melt, date ~ variable, sum, na.rm = TRUE)
+head(steps_sum)
+```
+
+Then we can find the mean of 'total number of steps per day'.
+```{r total steps per day summary}
+summary(steps_sum$steps)
+```
+
+Histogram of the total number of steps taken each day.
+```{r total step per day histogram}
+hist(steps_sum$steps, main = "Histogram of total steps taken per day",         xlab = "Total steps per day", ylab = "Number of days", 
+        breaks = 10)
+```
+
+Equivalent ggplot.
+```{r ggplot histogram}
+library(ggplot2)
+ggplot(steps_sum, aes(steps)) + geom_histogram(bins = 10)
+```
+
+Here's a plot showing the trend in total number of steps taken per day over two months.
+```{r total steps trend}
+steps_sum$date <- as.Date(steps_sum$date)
+ggplot(steps_sum, aes(date, steps)) + geom_line() +            
+        scale_x_date(date_labels = "%b %d") + 
+        ylab("Total number of steps")
+```
+
+3. Average daily activity pattern
+---------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
