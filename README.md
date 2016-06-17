@@ -10,7 +10,8 @@ Below we give a more detailed breakdown of the various components of the assignm
 
 Introduction
 ------------
-Introduction
-............
+# Introduction
+## Introduction
+### Introduction
 
 
