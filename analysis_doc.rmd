@@ -23,18 +23,18 @@ unzip(destfile)
 activity <- read.csv("activity.csv", sep = ",")
 ```
 
-The variable names and the structure of the activity file:
+The variable names and the structure of the file are given by
 ```{r activity details}
 names(activity)
 str(activity)
-head(activity[which(!is.na(activity$steps)), ])
+head(activity[which(!is.na(activity$steps)), ]) # data set with NA rows removed
 ```
-The format of the file is ready for analysis. No processing is required. 
+The format of the file is ready for analysis. No further processing is required. 
 
 2. Mean of "total number of step taken per day" over all days
 -------------------------------------------------------------
 
-Group the number of steps taken by date and intervals. Find the total number of steps taken per day over all days. Note that some of the days such as 2012-10-01 have no steps data.
+Group the number of steps by date and intervals. Find the total number of steps per day over all days. Note that some of the days such as 2012-10-01 have no steps data. Remove such rows for this part.
 
 ```{r steps mean}
 library(reshape2)
@@ -82,7 +82,9 @@ In this section, we make a time series plot (i.e. type = "l") of the 5-minute in
 ```{r time series plot}
 stepsmeaninterval <- dcast(activity_melt, interval ~ variable, mean, na.rm = TRUE)
 head(stepsmeaninterval)
-plot(stepsmeaninterval$interval, stepsmeaninterval$steps, ty = "l", xlab = "time interval", ylab = "Average steps", main = "Average steps taken over all days vs \n time interval")
+plot(stepsmeaninterval$interval, stepsmeaninterval$steps, ty = "l", 
+     xlab = "time interval", ylab = "Average steps", main = "Average 
+     steps taken over all days vs \n time interval")
 ```
 
 The time interval during which the maximum number of steps is taken is
