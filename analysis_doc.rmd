@@ -1,9 +1,4 @@
----
-title: "Daily Steps Takes - Data Analysis"
-author: "Faiyaz Hasan"
-date: "June 17, 2016"
-output: html_document
----
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
